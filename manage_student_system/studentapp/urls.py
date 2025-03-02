@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import danh_sach_sinh_vien
 
 urlpatterns = [
-    path('', views.student, name='student'),
+    path('', danh_sach_sinh_vien, name='ds_sv'),
 ]
