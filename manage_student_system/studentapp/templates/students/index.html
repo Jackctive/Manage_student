@@ -8,6 +8,21 @@
 </head>
 <body>
     <div class="container mt-5">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Trang Chủ</a>
+        </nav>
+
+        <div class="mt-4 d-flex justify-content-between">
+            <div>
+                <a href="{% url 'add_student' %}" class="btn btn-success">Thêm sinh viên</a>
+                <a href="#" class="btn btn-warning">Chỉnh Sửa Sinh Viên</a>
+            </div>
+            <div>
+                <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="Tìm kiếm sinh viên...">
+                <div id="searchResults" class="dropdown-menu w-50"></div>
+            </div>
+        </div>
+        
         <h2 class="text-center">Danh Sách Sinh Viên</h2>
         <table class="table table-bordered table-striped mt-3">
             <thead class="table-dark">

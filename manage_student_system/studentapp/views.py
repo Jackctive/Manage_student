@@ -6,3 +6,6 @@ def danh_sach_sinh_vien(request):
     context = {'sinhviens': sinhviens}
 
     return render(request, 'students/index.html', context)
+
+def add_student(request):
+    return render(request, 'students/add_student.html')
