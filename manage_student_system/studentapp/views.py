@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import SinhVien
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 def danh_sach_sinh_vien(request):
     sinhviens = SinhVien.objects.all()  # Lấy tất cả sinh viên từ database
@@ -36,3 +37,13 @@ def add_student(request):
             messages.error(request, f"Đã xảy ra lỗi: {e}")
             print(f"Đã xảy ra lỗi: {e}")
     return render(request, 'students/add_student.html')
+
+def delete_student(request, student_id):
+    try:
+        # Lấy sinh viên theo ID và xóa
+        student = get_object_or_404(SinhVien, id=student_id)
+        student.delete()
+        messages.success(request, "Sinh viên đã được xóa thành công!")
+    except Exception as e:
+        messages.error(request, f"Đã xảy ra lỗi: {e}")
+    return redirect('ds_sv')  # Chuyển hướng về danh sách sinh viên
